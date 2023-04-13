@@ -26,7 +26,7 @@ const connect = async () => {
 mongoose.connection.on('disconnected', () => { //if mongodb got disconnected
     console.log("mongodb disconnected");
 });
-app.get("/", async (req, res, next) => {
+app.get("/ash", async (req, res, next) => {
     res.send(100)
 })
 
