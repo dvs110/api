@@ -24,4 +24,3 @@ const personSchema = new Schema({
 });
 const Car = mongoose.model("Car", personSchema);
 
-module.exports = User;

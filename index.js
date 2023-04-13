@@ -25,7 +25,6 @@ app.use(express.json());
 // mongoose.connection.on('disconnected', () => { //if mongodb got disconnected
 //     console.log("mongodb disconnected");
 // });
-const mongoose = require("mongoose")
 const { Schema } = mongoose;
 const personSchema = new Schema({
     email: { type: String, required: true, unique: true },
