@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+const express = require("express")
+const mongoose = require("mongoose")
 const { Schema } = mongoose;
 const personSchema = new Schema({
     email: { type: String, required: true, unique: true },
