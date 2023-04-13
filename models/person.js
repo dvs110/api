@@ -22,4 +22,6 @@ const personSchema = new Schema({
     highesteducation: { type: String, default: 'Secondary' },
     whatdoudocurrently: { type: String, default: 'College Student' }
 });
-export default mongoose.model("Car", personSchema);
+const Car = mongoose.model("Car", personSchema);
+
+module.exports = User;
