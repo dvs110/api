@@ -14,17 +14,25 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(express.json());
 
-const connect = async () => {
-    try {
-        await mongoose.connect(process.env.key);
-        console.log("connected to mondodb");
-    } catch (error) {
-        throw error;
-    }
-}
-mongoose.connection.on('disconnected', () => { //if mongodb got disconnected
-    console.log("mongodb disconnected");
-});
+// const connect = async () => {
+//     try {
+//         await mongoose.connect(process.env.key);
+//         console.log("connected to mondodb");
+//     } catch (error) {
+//         throw error;
+//     }
+// }
+// mongoose.connection.on('disconnected', () => { //if mongodb got disconnected
+//     console.log("mongodb disconnected");
+// });
+
+const DB = process.env.key;
+mongoose.connect("DB", {
+    useNewUrlParser: true,
+
+}).then(() => {
+    console.log("Connection successfully established")
+}).catch((err) => console.log('no connection', err))
 
 
 app.post('/form', async (req, res, next) => {
@@ -45,7 +53,7 @@ app.post('/form', async (req, res, next) => {
 
 app.post("/verify", async (req, res, next) => {
     try {
-        console.log(req.body);
+        console.log(req.body.email);
         const person = await Car.findOne({ email: req.body.email })
         console.log(person);
         if (person == null) {
@@ -185,8 +193,8 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(port, function (err) {
+app.listen(port, () => {
 
-    connect();
+    // connect();
     console.log("connect to backend");
 })
