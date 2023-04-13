@@ -1,12 +1,11 @@
-import express from "express"
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+const express = require("express")
+const mongoose = require("mongoose")
+const dotenv = require("dotenv")
 dotenv.config();
-import bcrypt from "bcryptjs";
-import request from "request"
-import cors from "cors";
-import { createError } from "./utils/error.js";
-import Car from "./models/person.js"
+const bcrypt = require("bcryptjs");
+const cors = require("cors");
+const { createError } = require("./utils/error.js");
+const Car = require("./models/person.js")
 const app = express()
 
 app.use(cors());
