@@ -47,7 +47,7 @@ app.post('/form', async (req, res, next) => {
         res.status(200).json(savedperson)
 
     } catch (err) {
-        next(err)
+        // next(err)
     }
 });
 
@@ -67,7 +67,7 @@ app.post("/verify", async (req, res, next) => {
     } catch (err) {
         console.log(err);
         res.status(200).json("error aa gaya")
-        next(err)
+        // next(err)
     }
 
 })
@@ -91,7 +91,7 @@ app.post("/signin", async (req, res, next) => {
     } catch (err) {
         console.log(err);
         res.status(200).json("error aa gaya")
-        next(err)
+        // next(err)
     }
 
 })
@@ -114,7 +114,7 @@ app.post("/pass/:id", async (req, res, next) => {
     } catch (err) {
         console.log(err);
         res.status(200).json("error came")
-        next(err)
+        // next(err)
     }
 
 })
@@ -134,7 +134,7 @@ app.post("/updatepass/:id", async (req, res, next) => {
     } catch (err) {
         console.log(err);
         res.status(200).json("error came")
-        next(err)
+        // next(err)
     }
 
 })
@@ -148,7 +148,7 @@ app.post("/find/:id", async (req, res, next) => {
         else
             res.json(0);
     } catch (err) {
-        return next(err); //need to use return
+        // return next(err); //need to use return
     }
 })
 
@@ -161,7 +161,7 @@ app.post("/update/:id", async (req, res, next) => {
         console.log(updateperson);
         res.status(200).json(updateperson)
     } catch (err) {
-        return next(err);
+        // return next(err);
     }
 
 })
@@ -176,19 +176,19 @@ app.post("/upload-image/:id", async (req, res) => {
         res.status(200).json();
     }
     catch (err) {
-        return next(err);
+        // return next(err);
     }
 })
 
-app.use((err, req, res, next) => {
-    const errorStatus = err.status || 500;
-    const errorMessage = err.message || "something went wrong";
-    return res.status(errorStatus).json({
-        success: false,
-        status: errorStatus,
-        message: errorMessage
-    });
-})
+// app.use((err, req, res, next) => {
+//     const errorStatus = err.status || 500;
+//     const errorMessage = err.message || "something went wrong";
+//     return res.status(errorStatus).json({
+//         success: false,
+//         status: errorStatus,
+//         message: errorMessage
+//     });
+// })
 
 
 
